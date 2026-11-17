@@ -1,0 +1,101 @@
+#STAPLES id|unit|dept|orders|totalQty|desc|history(date:preco[/sale])
+11055|UN|Bazar e Utilidades|10|15|Papel Toalha Rede Krill Com Folha Dupla|2024-09-18:5.99,2025-09-16:6.59,2025-10-27:6.59/4.99,2025-12-15:5.99,2026-01-05:6.99,2026-02-03:6.99,2026-04-28:8.29,2026-08-25:6.99,2026-09-22:6.99/4.99,2026-11-09:6.99
+528|UN|Bazar e Utilidades|6|7|Filtro Papel Melitta Original 103 Com 30un|2024-12-27:5.49,2025-03-25:5.79,2025-10-08:4.99/3.99,2025-11-26:4.99,2026-09-22:4.99,2026-11-09:4.99
+3034|UN|Bazar e Utilidades|3|4|Filtro Papel Brigitta 103 Com 30un|2025-01-15:4.99/4.49,2025-08-04:4.79,2026-04-28:4.79
+6041|UN|Bazar e Utilidades|3|3|Papel Toalha Kitchen Jumbo Com 3un Leve 360 Folhas Pague 330folhas|2025-01-15:22.99,2025-02-20:22.99,2025-03-25:22.99
+6954|UN|Bebidas|6|8|Energético Tsunami 2l|2024-09-26:7.99,2024-10-07:6.99,2025-02-20:8.99,2025-06-03:9.99,2025-07-07:9.99/8.99,2025-10-27:8.99
+2977|UN|Bebidas|4|4|Suco Natural One Laranja 900ml|2025-03-25:13.99,2025-07-14:13.99,2025-08-21:13.99,2025-09-16:13.99
+9123|UN|Bebidas|3|4|Água Coco Kero Coco 1l|2024-09-18:15.99,2025-08-21:14.99/12.99,2026-09-22:14.99
+7712|UN|Bebidas Alcoólicas|4|46|Cerveja Heineken Puro Malte Long Neck 250ml|2024-09-26:4.99,2024-12-27:4.99,2025-02-20:4.99,2025-03-25:4.99
+14617|CX|Bebidas Alcoólicas|4|8|Cerveja Antártica Original Lata 269ml Pack Caixa 15un|2025-02-20:44.7,2025-03-25:44.7,2025-07-14:46.19,2026-09-22:52.39/52.35
+1898|UN|Biscoitos e Salgadinhos|3|3|Amendoim Yoki Japonês 150g|2024-09-18:6.29,2025-02-20:6.99,2025-08-21:6.89
+12993|UN|Biscoitos e Salgadinhos|3|3|Salgadinho Torcida Pimenta Mexicana 60g|2025-02-20:2.39,2025-07-14:2.29,2025-09-16:2.29
+9888|KG|Carnes, Aves e Peixes|9|18|Acem Bovina 500g|2025-02-20:18,2025-03-25:18.5,2025-04-24:19.5,2025-06-03:18,2025-07-07:19.5,2025-09-16:19.5,2026-04-28:21.5,2026-08-25:20,2026-09-22:20.5
+4270|KG|Carnes, Aves e Peixes|7|12|Acem Do Meio Bovino 500g|2024-09-26:15.5,2025-01-06:19.5,2025-02-20:18.5,2025-06-03:18.5,2025-08-21:19.5,2025-12-15:20,2026-11-09:22.5
+6616|KG|Carnes, Aves e Peixes|6|10|Coxa Sobre Coxa Coxa Frango Desossado 500g|2024-09-18:8.5,2024-09-26:8.5,2025-02-20:8.5,2025-07-07:9.5,2026-04-28:10,2026-11-09:10/7.5
+167|KG|Carnes, Aves e Peixes|5|10|Coxa Sobre Coxa Coxa Frango 500g|2024-10-07:5,2025-04-24:6/4.4,2025-06-03:6,2025-10-27:6,2026-11-09:5.5
+9264|KG|Carnes, Aves e Peixes|4|4|Linguiça Toscana Aurora 500g|2024-12-27:12.5,2025-06-03:13.5,2025-12-15:13.5,2026-09-22:14
+7922|KG|Carnes, Aves e Peixes|4|9|Contra File Bovino 500g|2025-01-15:32.5,2025-04-24:31.5,2025-08-04:29,2026-02-03:32.5
+3337|UN|Carnes, Aves e Peixes|3|5|File De Tilapia Canção Congelada 400g|2024-12-27:24.99,2025-01-15:24.99,2025-06-03:24.99/17.99
+13073|KG|Carnes, Aves e Peixes|3|3|Bacon Nobre Defumada 200g|2025-01-15:6.58,2026-01-05:6.58,2026-04-28:6.58
+9753|UN|Carnes, Aves e Peixes|3|4|Carne Seca Paineira Dianteiro Pacote 400g|2025-07-07:25.99,2025-08-04:25.99,2026-01-05:25.99
+2704|KG|Carnes, Aves e Peixes|3|3|Linguiça Tipo Calabresa Perdigão 500g|2025-09-16:14.5,2025-12-15:14.5/13,2026-04-28:14/13
+4992|UN|Congelados|9|11|Pão De Queijo Aurora Tradicional 1kg|2024-09-18:25.39,2025-01-06:25.39,2025-07-07:25.39,2025-08-21:25.39,2025-09-16:25.39,2025-10-27:25.39,2026-01-05:25.69,2026-04-28:25.99,2026-09-22:25.99
+1030|UN|Congelados|3|4|Pão Queijo Forno Minas Tradicional 400g|2024-10-07:19.39,2025-02-20:18.99,2025-03-25:21.99
+489|UN|Doces e Sobremesas|3|5|Leite Condensado Italac Semidesnatado Tetra Park 395g|2025-04-24:6.89,2025-07-07:6.89,2025-08-04:6.99
+6328|UN|Doces e Sobremesas|3|5|Leite Condensado Piracanjuba Semidesnatado Tp 395g|2025-06-03:6.89/5.99,2025-11-26:6.89,2025-12-15:6.99
+16564|UN|Doces e Sobremesas|3|3|Cacau Pó Rede Krill 100% 100g|2025-10-08:14.99,2025-12-15:14.99,2026-08-25:14.99
+6706|KG|Frios e Laticinios|16|25|Queijo Mussarela Fatiado 200g|2024-09-26:12,2024-12-27:12,2025-01-06:12,2025-02-20:12,2025-07-07:11,2025-07-14:11,2025-08-21:11,2025-09-16:11,2025-10-08:10,2025-10-27:10,2025-12-15:10,2026-01-05:10,2026-02-03:10,2026-08-25:12,2026-09-22:12,2026-11-09:12
+6908|UN|Frios e Laticinios|7|9|Requeijão Cremoso Vigor 200g|2024-09-18:9.49,2025-07-14:9.79,2025-08-21:10.99,2025-10-08:10.99,2025-12-15:9.99,2026-02-03:10.69,2026-09-22:8.99
+86|UN|Frios e Laticinios|5|6|Queijo Ralado Vigor 50g|2024-10-07:5.99,2025-06-03:6.39,2025-09-16:6.39,2025-12-15:4.99/3.99,2026-08-25:6.99/4.99
+6216|KG|Frios e Laticinios|4|7|Mortadela Defumada Perdigão Ouro 200g|2025-01-15:5.4,2025-02-20:5.8,2026-02-03:6,2026-09-22:6/3.38
+16530|UN|Frios e Laticinios|4|4|Manteiga Rede Krill 1ql Com Sal Pote 200g|2025-11-26:11.99/10.99,2026-01-05:11.99,2026-02-03:11.99/10.99,2026-04-28:12.89/11.99
+2474|UN|Frios e Laticinios|3|3|Manteiga Aviação 1ql Com Sal Pote 200g|2024-09-18:16.79,2025-01-06:16.79,2025-01-15:16.79
+6662|KG|Frios e Laticinios|3|5|Mortadela Defumada Seara 200g|2024-09-18:4.6,2025-07-14:5.6,2025-08-21:5.6
+9228|UN|Frios e Laticinios|3|4|Massa Pastel Massaleve Cumbuca 500g|2024-09-18:9.99,2025-03-25:9.19,2025-09-16:9.19
+5320|UN|Frios e Laticinios|3|4|Salame Italiano Seara Fatiado 100g|2024-12-27:9.99/8.99,2025-09-16:12.99/9.99,2025-10-08:12.99/7.99
+3680|UN|Frios e Laticinios|3|3|Manteiga Itambé Extra Sem Sal Tablete 200g|2025-01-15:12.59,2025-06-03:13.69,2025-09-16:14.39
+776|UN|Frios e Laticinios|3|3|Pão Alho Santa Massa Tradicional 400g|2025-04-24:16.59,2025-10-27:16.39,2026-09-22:17.59
+6682|KG|Frios e Laticinios|3|3|Queijo Minas Padrão Tirolez Meia Lua Peça 550g|2025-09-16:55/53.4,2025-12-15:55/52,2026-02-03:55/50
+10147|UN|Frios e Laticinios|3|3|Manteiga Batavo Extra Sem Sal Pote 200g|2025-11-26:14.59,2025-12-15:14.59,2026-04-28:14.59
+16880|UN|Higiene e Cuidados Pessoais|5|5|Papel Higiénico Mimmo Folha Dupla Neutro 30m 12un|2025-12-15:18.99,2026-02-03:20.99,2026-08-25:21.99,2026-09-22:21.99,2026-11-09:21.99
+12717|UN|Higiene e Cuidados Pessoais|4|4|Papel Higiênico Fofinho Folha Dupla Neutro 30m Leve 12 Pague 11|2024-10-07:21.19,2025-10-08:21.19/14.99,2025-10-27:21.19/14.99,2026-04-28:20.69
+4071|KG|Hortifruti|14|32|Cebola Nacional 1un. (aprox. 250g)|2024-09-18:1/0.8,2024-09-26:0.8/0.6,2024-10-07:0.8,2024-12-27:0.8,2025-01-15:0.8/0.6,2025-02-20:0.8/0.6,2025-03-25:0.8,2025-04-24:1/0.8,2025-07-14:4.99/0.8,2025-09-16:0.6,2025-10-27:0.8,2026-04-28:1.5,2026-08-25:1.5/1,2026-09-22:2.25
+202|KG|Hortifruti|10|10|Cebola Roxa 1un. (aprox. 300g)|2024-09-18:1.8,2024-12-27:1.6,2025-01-15:1.6,2025-02-20:1.6,2025-03-25:1.6,2025-07-14:1.8,2025-09-16:1.6,2026-04-28:3,2026-09-22:3.3,2026-11-09:4.8
+4879|KG|Hortifruti|10|15|Banana Nanica 1un. (aprox. 200g)|2024-09-18:3/2.5,2024-09-26:3/2.5,2024-10-07:3,2025-02-20:3/2,2025-03-25:3.5,2025-04-24:3/2,2025-07-14:2.5,2025-11-26:11.19/8.39,2026-02-03:9.79,2026-08-25:1.4
+1527|KG|Hortifruti|9|22|Cenoura 1un. (aprox. 200g)|2024-09-18:0.8/0.6,2025-01-06:1.4,2025-04-24:1.2/1,2025-07-14:5.99/1,2025-08-21:1/0.8,2025-09-16:1.2,2026-02-03:1.2,2026-08-25:2,2026-11-09:1.4
+5585|KG|Hortifruti|9|16|Limão Taiti 1un. (aprox. 100g)|2024-09-18:3/2.5,2024-12-27:2,2025-01-15:2/1.5,2025-02-20:2/1.5,2025-04-24:2/1.5,2025-09-16:5,2026-02-03:1.5,2026-08-25:1.2,2026-09-22:1.4
+8246|KG|Hortifruti|8|12|Pepino Comum 1un. (aprox. 500g)|2024-09-18:1.4/1.2,2025-01-15:1/0.8,2025-03-25:1.2,2025-07-14:2,2025-08-21:1.4/1.2,2025-09-16:1.2,2025-12-15:0.8,2026-09-22:3.5/3.09
+5541|KG|Hortifruti|7|9|Abobrinha Italiana 1un. (aprox. 500g)|2024-09-18:2/0.75,2024-10-07:2,2025-01-15:6/5,2025-04-24:2/1.5,2025-07-14:16.99/7.5,2025-08-21:6/5.5,2025-09-16:5.5
+1024|KG|Hortifruti|7|8|Mamão Papaya 1un. (aprox. 700g)|2024-10-07:6.39,2024-12-27:8.79,2025-02-20:11.99/10.39,2025-03-25:7.19,2025-04-24:11.19/8.79,2025-07-14:16.79,2026-04-28:10.49
+7634|KG|Hortifruti|7|13|Tomate Pizzadoro/italiano 1un. (aprox. 200g)|2025-01-15:4/3.5,2025-02-20:5/4,2025-03-25:4,2025-04-24:7.99/4,2025-07-14:5.5,2025-09-16:9.99/4.5,2026-09-22:3.2
+8247|KG|Hortifruti|6|6|Pimentão Amarelo 1un. (aprox. 200g)|2024-09-18:4,2024-12-27:22.99/4.6,2025-01-15:4,2025-02-20:4,2025-04-24:4,2026-09-22:4.8
+6665|KG|Hortifruti|6|9|Batata Lavada 1un. (aprox. 300g)|2024-12-27:3,2025-01-15:2/1.5,2025-04-24:4.5/4,2025-07-14:2.5,2026-09-22:2.1/1.5,2026-11-09:2.1
+1630|KG|Hortifruti|5|5|Pimentão Vermelho 1un. (aprox. 400g)|2024-09-18:4,2024-12-27:4.6,2025-03-25:4,2025-12-15:6,2026-08-25:12
+4074|KG|Hortifruti|5|9|Tomate Carmem 1un. (aprox. 250g)|2024-09-18:3/2.5,2025-08-21:4.5/3,2025-10-08:7/6,2025-12-15:4,2026-08-25:2.75/2.56
+9330|KG|Hortifruti|5|5|Berinjela 1un. (aprox. 400g)|2024-09-18:5.39/4.79,2024-12-27:4.79,2025-01-15:5.39/4.79,2025-07-14:3.59,2025-09-16:7.19
+14160|UN|Hortifruti|5|6|Salsa E Cebolinha Unidade|2024-12-27:3.99,2025-01-15:3.99/2.99,2025-02-20:3.99/2.99,2025-04-24:3.99/3.49,2025-08-21:3.99/1.99
+10216|KG|Hortifruti|4|4|Alho Roxo Nº6 (aprox. 200g)|2024-09-26:7/6,2024-12-27:7.4,2025-02-20:7.58/6,2026-09-22:6
+4007|KG|Hortifruti|3|4|Laranja Pera 1un. (aprox. 200g)|2024-09-18:4/3.5,2025-01-15:4.5/3.5,2025-08-21:3/2.5
+9331|KG|Hortifruti|3|3|Pimentão Verde 1un. (aprox. 300g)|2024-12-27:1.8,2025-01-06:1.6,2026-09-22:3.6
+14167|UN|Hortifruti|3|3|Hortelã Watanabe Unidade|2024-12-27:2.99,2025-09-16:2.99,2026-02-03:2.99
+14172|UN|Hortifruti|3|3|Couve Manteiga Watanabe Unidade|2025-01-15:3.99/2.99,2025-04-24:3.99/1.99,2025-08-21:3.99/2.49
+3578|KG|Hortifruti|3|3|Repolho Verde 1un. (aprox. 1,5kg)|2025-04-24:5.99/4.49,2025-11-26:7.49/4.49,2026-02-03:7.49
+14173|UN|Hortifruti|3|3|Coentro Watanabe Unidade|2025-04-24:5.99/4.99,2026-08-25:5.99,2026-09-22:5.99
+838|UN|Hortifruti|3|3|Pimentão Misto Dois Cunhados 350g|2025-07-14:18.99,2025-08-21:18.99,2025-09-16:11.29
+6142|UN|Iogurtes, Leites Fermentados e Sobremesas|5|8|Iogurte Batavo Natural Integral Cremoso 450g|2025-06-03:9.59,2025-09-16:9.59,2025-12-15:9.59,2026-02-03:12.49,2026-09-22:12.49
+6922|UN|Iogurtes, Leites Fermentados e Sobremesas|4|5|Iogurte Itambé Natural Milk 450g|2025-01-06:12.69,2025-11-26:12.19,2026-01-05:12.19,2026-04-28:11.29
+9|UN|Leites|9|27|Leite Uht Italac Integral Com Tampa 1l|2024-09-18:5.99,2025-03-25:5.79/4.59,2025-04-24:5.79/4.69,2025-06-03:5.79,2025-07-07:5.79,2025-11-26:5.19,2026-04-28:5.99,2026-09-22:5.99,2026-11-09:5.89
+8073|UN|Limpeza|4|17|Esponja Multiuso Brilhus Un|2024-09-18:1.29,2025-01-06:1.29,2025-02-20:1.29,2025-06-03:1.29
+6986|UN|Limpeza|4|4|Lava Roupas Em Pó Omo Lavagem Perfeita 800g|2025-01-06:11.99,2025-02-20:12.39,2025-07-07:13.29,2025-12-15:12.99
+6468|UN|Limpeza|4|11|Detergente Minuano Neutro 500ml|2025-10-27:2.39/1.99,2026-01-05:2.39,2026-04-28:2.39,2026-09-22:2.69/2.19
+8590|UN|Limpeza|4|7|Esponja Esfrelux Multiuso Leve 4 Unidades Pague 3 Unidades|2025-10-27:4.79,2026-01-05:4.79,2026-04-28:4.89,2026-11-09:4.99
+5015|UN|Limpeza|3|5|Lã Aço Assolan 45g|2025-06-03:1.89,2025-08-04:1.89,2026-04-28:2.09
+11064|UN|Limpeza|3|5|Saco Lixo Rede Krill Reforçado 50l Com 10un|2025-08-04:6.99,2026-04-28:7.69,2026-08-25:10.99
+5135|UN|Matinais|5|10|Café Pilão Tradicional Almofada 500g|2025-01-15:28.99,2025-06-03:37.99,2025-11-26:34.99,2025-12-15:34.99/32.99,2026-04-28:32.99/28.99
+637|UN|Matinais|4|4|Granola Natural Life Ban/can.300g|2025-06-03:12.99,2025-08-04:12.49/10.99,2025-10-27:12.49,2026-11-09:11.99
+2599|UN|Matinais|3|5|Café Pilão Tradicional Vácuo 500g|2025-10-27:34.99/32.99,2026-08-25:28.99/25.99,2026-11-09:28.99/25.99
+7851|UN|Mercearia Alimentos Básicos|6|11|Óleo Soja Liza Pet 900ml|2024-09-18:6.69,2025-01-06:8.19,2025-02-20:8.69,2025-06-03:7.99/6.59,2025-07-07:7.99,2025-12-15:8.99/7.69
+10993|UN|Mercearia Alimentos Básicos|6|10|Ovos Branco Rede Krill Extra Com 20un|2024-09-18:15.99/10.99,2025-01-06:16.99,2025-01-15:15.99/11.99,2025-07-14:17.99,2025-10-08:16.99/12.99,2025-12-15:15.99
+4725|UN|Mercearia Alimentos Básicos|6|10|Tapioca Da Terrinha 500g|2024-10-07:6.89,2025-02-20:6.99,2025-06-03:6.99,2025-08-04:6.99/4.99,2026-01-05:6.99,2026-09-22:6.79
+743|UN|Mercearia Alimentos Básicos|6|11|Macarrão Dona Benta Penne Com Ovos 500g|2025-06-03:3.79,2025-08-04:3.99/3.19,2025-10-08:3.99,2026-01-05:3.99,2026-09-22:3.59,2026-11-09:3.59
+9240|UN|Mercearia Alimentos Básicos|6|10|Óleo Soja Soya Pet 900ml|2025-08-04:7.79/6.59,2025-11-26:8.89,2026-01-05:8.49,2026-04-28:7.89/6.99,2026-09-22:7.69/6.99,2026-11-09:8.19/7.69
+9243|UN|Mercearia Alimentos Básicos|5|8|Farinha Trigo Dona Benta Sem Fermentado 1kg|2024-09-18:5.99,2025-06-03:5.49/5.29,2025-07-07:5.79/5.49,2025-07-14:5.79,2025-10-27:5.99/5.49
+1022|UN|Mercearia Alimentos Básicos|5|15|Ovos Branco Iana Grande Com 30un|2026-02-03:22.99,2026-04-28:29.99,2026-08-25:26.99,2026-09-22:26.99,2026-11-09:26.99
+9577|UN|Mercearia Alimentos Básicos|4|4|Azeite Andorinha Extra Virgem Vidro 500ml|2025-03-25:44.99,2025-07-07:39.99/32.99,2025-11-26:36.99,2026-09-22:32.99
+13257|UN|Mercearia Alimentos Básicos|4|4|Aveia Rede Krill Flocos 170g|2025-12-15:4.49,2026-04-28:4.49,2026-08-25:4.49,2026-11-09:4.49
+9249|UN|Mercearia Alimentos Básicos|3|3|Açucar Cristal Uniao 1kg|2025-01-06:5.39,2025-10-27:4.69/3.99,2026-01-05:4.49
+2225|UN|Mercearia Alimentos Básicos|3|8|Ovos Branco Santa Mônica Grande Pvc Com 30un|2025-02-20:29.99,2025-06-03:24.99,2025-11-26:23.99
+12699|UN|Mercearia Alimentos Básicos|3|3|Grão Bico Kisabor 400g|2025-07-07:11.99,2025-08-04:11.99,2026-11-09:10.99
+9220|UN|Molhos, Condimentos e Conservas|9|14|Azeitona Verde Rivoli Sem Caraço Sachê 150g|2024-09-18:6.59,2025-03-25:7.69,2025-07-07:7.99,2025-07-14:7.99,2025-08-21:7.99,2025-09-16:7.99,2025-10-08:7.99/5.99,2025-12-15:7.99,2026-01-05:7.99
+2630|UN|Molhos, Condimentos e Conservas|4|4|Molho Shoyu Rede Krill 150ml|2025-09-16:2.99,2025-10-08:2.99,2025-12-15:3.29,2026-11-09:3.99
+11149|UN|Molhos, Condimentos e Conservas|3|10|Extrato Tomate Elefante Pote 300g|2025-03-25:7.49,2025-06-03:8.59,2025-08-04:8.59
+15416|UN|Molhos, Condimentos e Conservas|3|3|Pepino Conservado Nativus 300g|2025-03-25:15.39,2025-12-15:15.39,2026-09-22:17.99
+414|UN|Molhos, Condimentos e Conservas|3|11|Sardinha Coqueiro Óleo 125g|2025-08-04:5.99,2025-11-26:5.99,2026-01-05:5.99
+12827|UN|Molhos, Condimentos e Conservas|3|4|Milho Verde Rede Krill Lata 170g|2025-08-04:3.59,2025-10-08:3.49,2026-01-05:3.49
+6334|UN|Padaria Industrializados|4|4|Pão De Forma Pullman Tradicional 480g|2024-09-18:8.69,2025-01-06:6.99,2025-10-08:8.99,2026-01-05:8.99
+10026|UN|Padaria Industrializados|4|6|Pão De Forma Panco Tradicional 500g|2025-07-14:9.99,2025-12-15:9.99,2026-04-28:10.69,2026-09-22:10.69
+6357|UN|Pet Shop|6|7|Alimento Cães Pedigree Adulto Pequeno Carne Vegetais 900g|2025-02-20:21.69/17.99,2025-08-04:20.79/15.99,2025-10-08:20.79,2025-10-27:20.79,2025-11-26:19.99,2025-12-15:19.99/15.99
+876|UN|Pet Shop|3|3|Bifinho Caes Baw Waw Adulto Pequeno Carne 50g|2025-01-06:3.49,2025-04-24:3.49,2025-06-03:3.19
+4532|UN|Pet Shop|3|3|Petisco Caes Pedigree Dentastix Adulto Pequeno 45g|2025-02-20:11.49,2025-07-07:9.69,2026-08-25:10.99
+797|UN|Pet Shop|3|3|Bifinho Caes Baw Waw Adulto Todos Tamanho Carne 50g|2025-07-07:3.19,2025-07-14:3.19,2026-02-03:3.19
