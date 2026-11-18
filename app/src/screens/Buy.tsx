@@ -12,7 +12,7 @@ import { PRICES, PRODUCTS, buyOf, choiceFor, lastBoughtOf, lineOf, useStore, use
 import { fmt } from '../i18n'
 import { Card, Modal, ProductImg, Stepper, brl, pct } from '../ui/common'
 
-export function Buy({ goCountFresh }: { goCountFresh: () => void }) {
+export function Buy({ goCount }: { goCount: (scope: 'monthly' | 'fresh') => void }) {
   const { s, d } = useStore()
   const t = useT()
   const [phase, setPhase] = useState<'list' | 'filling' | 'review'>('list')
@@ -69,7 +69,7 @@ export function Buy({ goCountFresh }: { goCountFresh: () => void }) {
       <div className="pad">
         {modeSwitch}
         <p className="small muted">{t.freshTopUpHint}</p>
-        <button className="btn ghost full" onClick={goCountFresh}>📋 {t.countFresh}</button>
+        <button className="btn ghost full" onClick={() => goCount('fresh')}>📋 {t.countFresh}</button>
         {freshLines.length === 0 ? <p className="muted">{t.nothingToBuy}</p> : (
           <Card>
             <div className="row"><h4>{t.inStoreChecklist}</h4><small className="muted">≈ {brl(est)} · {t.atStore} Krill</small></div>
@@ -93,7 +93,7 @@ export function Buy({ goCountFresh }: { goCountFresh: () => void }) {
     )
   }
 
-  if (!lines.length) return <div className="pad">{modeSwitch}<p className="muted">{t.nothingToBuy}</p></div>
+  if (!lines.length) return <div className="pad">{modeSwitch}<button className="btn ghost full" onClick={() => goCount('monthly')}>📋 {t.countMonthly}</button><p className="muted">{t.nothingToBuy}</p></div>
 
   if (phase === 'filling') {
     return (
@@ -210,6 +210,7 @@ export function Buy({ goCountFresh }: { goCountFresh: () => void }) {
   return (
     <div className="pad">
       {modeSwitch}
+      <button className="btn ghost full" onClick={() => goCount('monthly')}>📋 {t.countMonthly}</button>
       {notCounted && <p className="banner warn">{t.notCountedYet}</p>}
       <Card className="delivery">
         <div className="row"><span>{t.estTotal}</span><b>{brl(total)}</b></div>

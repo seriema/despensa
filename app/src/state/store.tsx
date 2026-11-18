@@ -9,6 +9,7 @@ import { ROOMS } from '../domain/types'
 import { buildSeed } from '../data/seed'
 import { chooseProduct, parseSize, sizeLabel } from '../domain/choose'
 import { STRINGS } from '../i18n'
+import { isShortLife } from '../domain/suggest'
 
 const KEY = 'despensa:v3' // bump when the stored shape changes
 const seed = buildSeed()
@@ -34,7 +35,7 @@ const initial: State = {
     alertThresholdPct: 5,
     onboarded: false,
     countView: 'list',
-    leftHanded: false,
+    buttonSide: 'right',
     denyBrands: [],
   },
   inventory: { have: {}, position: 0 },
@@ -52,6 +53,8 @@ type Action =
   | { type: 'toggleDenyBrand'; brandId: number }
   | { type: 'extraBuy'; itemId: string; delta: number }
   | { type: 'setItems'; items: Item[] }
+  | { type: 'scope'; value: 'all' | 'monthly' | 'fresh' }
+  | { type: 'restore'; state: State }
   | { type: 'reset' }
 
 const toggle = (xs: number[], x: number) => (xs.includes(x) ? xs.filter((y) => y !== x) : [...xs, x])
@@ -80,20 +83,27 @@ function reducer(s: State, a: Action): State {
     }
     case 'setItems':
       return { ...s, items: a.items }
+    case 'scope':
+      return { ...s, inventory: { ...s.inventory, scope: a.value, position: 0 } }
+    case 'restore':
+      return a.state
     case 'reset':
       return initial
   }
 }
 
+/** Build a full State from saved/imported data, filling fields added in newer versions. */
+export function migrate(saved: any): State {
+  const settings = { ...initial.settings, ...saved.settings, address: { ...initial.settings.address, ...saved.settings?.address } }
+  if (saved.settings?.leftHanded) settings.buttonSide = 'left' // v0.7 boolean → v0.8 three-way setting
+  delete (settings as any).leftHanded
+  return { ...initial, ...saved, settings }
+}
+
 function load(): State {
   try {
     const raw = localStorage.getItem(KEY)
-    if (raw) {
-      const saved = JSON.parse(raw)
-      // Merge new settings fields (e.g. address.number, v0.6) into data saved by older versions.
-      const settings = { ...initial.settings, ...saved.settings, address: { ...initial.settings.address, ...saved.settings?.address } }
-      return { ...initial, ...saved, settings }
-    }
+    if (raw) return migrate(JSON.parse(raw))
   } catch {
     /* storage unavailable – start fresh */
   }
@@ -129,8 +139,9 @@ export function useWalkItems() {
     () =>
       s.items
         .filter((i) => i.active)
+        .filter((i) => (s.inventory.scope === 'fresh' ? isShortLife(i) : s.inventory.scope === 'monthly' ? !isShortLife(i) : true))
         .sort((a, b) => ROOMS.indexOf(a.room) - ROOMS.indexOf(b.room) || a.name.localeCompare(b.name)),
-    [s.items],
+    [s.items, s.inventory.scope],
   )
 }
 

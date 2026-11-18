@@ -51,6 +51,7 @@ monthly spending over time, and a "good day to buy" notification.
 | Shelf life | Each need has "keeps for" (default: produce 1 wk, fridge 3 wk, pantry/cleaning/frozen 8 wk; editable). Target = weekly use × keeps-for (max 8 wk). |
 | Two rhythms | **Monthly order** (filled in the store's cart) for items keeping ≥3 weeks; **fresh top-up** = in-store checklist every 1–2 weeks for short-life items (user goes to Krill or Extra). With multi-store later, the app recommends the cheaper store that day. |
 | Spending data gap | Krill order history = online orders only (≈R$455–580/month); in-store purchases (Krill, Extra, markets) are invisible, real spend ≈ R$1000+/month. Idea: Nota Fiscal Paulista (CPF na nota) receipts as a source. |
+| Test data → real app | The household's real test run happens in the PWA. **Settings → Backup → Export** saves a JSON file (`{app, schema, exportedAt, state}`) via the Android share sheet; the Android app must offer **Import** on first run (reuse `migrate()` in state/store.tsx). Keep the backup schema backward compatible. |
 | Hand-off | Plain readable TS, no obfuscation/minification in source; comments on *why*; this PLAN + docs kept current. Code in a git repo (GitHub, to be created). |
 
 ## 3. Architecture
@@ -136,6 +137,9 @@ Acém R$ 15.50 → 22.50. Raw extract: `data/staples.txt`.
 
 - 2026-11-17 (night): left-handed setting; fresh top-up checklist + monthly order split by shelf life;
   example basket sheet corrected to real monthly amounts (Krill-only data).
+
+- 2026-11-18: count-card button side setting (left/right/below), count scopes (monthly-order items / fresh items,
+  opened from the Buy tab), backup export/import for carrying the real test run into the Android app.
 
 ## 9. Open questions
 

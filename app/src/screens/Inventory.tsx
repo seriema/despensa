@@ -16,7 +16,13 @@ export function Inventory({ onDone }: { onDone: () => void }) {
   const pos = Math.min(s.inventory.position, Math.max(0, items.length - 1))
   const go = (p: number) => d({ type: 'position', value: Math.max(0, Math.min(items.length - 1, p)) })
   const swipe = useSwipe(() => go(pos + 1), () => go(pos - 1))
-  if (!items.length) return <p className="pad">{t.nothingToBuy}</p>
+  if (!items.length)
+    return (
+      <div className="pad">
+        <p>{t.nothingToBuy}</p>
+        {s.inventory.scope && s.inventory.scope !== 'all' && <button className="btn ghost" onClick={() => d({ type: 'scope', value: 'all' })}>{t.showAll}</button>}
+      </div>
+    )
 
   const current = items[pos]
   const room = current.room
@@ -29,6 +35,13 @@ export function Inventory({ onDone }: { onDone: () => void }) {
   const missingIn = (r: RoomId) => items.filter((i) => i.room === r && buyOf(s, i) > 0).length
   const imageOf = (i: Item) => refProductOf(i)?.image ?? i.image
 
+  const scope = s.inventory.scope ?? 'all'
+  const scopeBanner = scope !== 'all' && (
+    <div className="scope-banner">
+      <span>{scope === 'fresh' ? t.countingFresh : t.countingMonthly}</span>
+      <button className="link" onClick={() => d({ type: 'scope', value: 'all' })}>{t.showAll}</button>
+    </div>
+  )
   const header = (
     <div className="count-head">
       <div className="room-chips">
@@ -51,6 +64,8 @@ export function Inventory({ onDone }: { onDone: () => void }) {
     return (
       <div className="inventory">
         {header}
+      {scopeBanner}
+        {scopeBanner}
         <p className="small muted hint">{t.countHint}</p>
         <div className="count-list">
           {roomItems.map((i) => {
@@ -91,20 +106,27 @@ export function Inventory({ onDone }: { onDone: () => void }) {
   return (
     <div className="inventory card-mode">
       {header}
+      {scopeBanner}
       <div className="progress"><div style={{ width: `${((pos + 1) / items.length) * 100}%` }} /></div>
       {/* Big photo for recognition; −/+ stacked on the right, under the thumb (feedback v0.6). */}
       <div className="count-card" key={current.id} {...swipe}>
         <div className="room-label">{t.rooms[room]} · {pos + 1}/{items.length}</div>
-        <div className={'cc-main' + (s.settings.leftHanded ? ' left' : '')}>
-          <ProductImg image={imageOf(current)} dept={current.dept} size={240} />
-          <Stepper vertical value={haveOf(s, current)} onChange={(v) => setHave(current.id, v)} />
-        </div>
+        {/* Button side is a setting: right / left of the photo, or below it (feedback v0.7). */}
+        {s.settings.buttonSide === 'below' ? (
+          <ProductImg image={imageOf(current)} dept={current.dept} size={200} />
+        ) : (
+          <div className={'cc-main' + (s.settings.buttonSide === 'left' ? ' left' : '')}>
+            <ProductImg image={imageOf(current)} dept={current.dept} size={240} />
+            <Stepper vertical value={haveOf(s, current)} onChange={(v) => setHave(current.id, v)} />
+          </div>
+        )}
         <h2 className="item-name">{current.name}</h2>
         {ref && <div className="ref-name">{pack && <span className="pack">{pack}</span>} {ref.name}</div>}
         <div className="target-row">
           <span>{t.target}: <b>{current.target}</b></span>
           <span className={buy ? 'need' : 'ok'}>{buy ? `${t.buy}: ${buy}` : t.allGood}</span>
         </div>
+        {s.settings.buttonSide === 'below' && <Stepper value={haveOf(s, current)} onChange={(v) => setHave(current.id, v)} />}
       </div>
       <div className="walk-nav">
         <button className="btn ghost" disabled={pos === 0} onClick={() => go(pos - 1)}>‹ {t.back}</button>

@@ -275,3 +275,5 @@ main { padding-bottom: 70px; }
 .line.check input { width: 20px; height: 20px; accent-color: var(--brand-2); }
 .line.check.done .nm, .line.check.done .qty { text-decoration: line-through; opacity: .5; }
 .keeps select { font-size: 12px; background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 3px; }
+.scope-banner { display: flex; justify-content: space-between; align-items: center; background: rgba(245,196,0,.18); border-radius: 10px; padding: 4px 10px; font-size: 13px; margin: 4px 0; }
+label.btn { cursor: pointer; display: inline-block; }

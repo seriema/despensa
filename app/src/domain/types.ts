@@ -69,7 +69,7 @@ export interface Settings {
   alertThresholdPct: number
   onboarded: boolean
   countView: 'list' | 'card'
-  leftHanded: boolean // count card: −/+ on the left instead of the right
+  buttonSide: 'right' | 'left' | 'below' // count card: where the −/+ buttons are
   denyBrands: number[] // Krill marca_id never to buy, for any need
 }
 
@@ -78,4 +78,6 @@ export interface InventoryState {
   finishedAt?: string
   have: Record<string, number> // itemId -> packages counted at home (uncounted = 0)
   position: number
+  /** What the current walk covers: everything, only monthly-order items, or only fresh (short-life) items. */
+  scope?: 'all' | 'monthly' | 'fresh'
 }
