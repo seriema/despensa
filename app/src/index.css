@@ -266,3 +266,4 @@ main { padding-bottom: 70px; }
 .cc-main .pimg { max-width: 240px; }
 .stepper.vertical.big button { width: 82px; height: 82px; font-size: 38px; }
 .stepper.vertical { gap: 12px; }
+.cc-main.left { flex-direction: row-reverse; }

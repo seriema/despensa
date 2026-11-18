@@ -34,6 +34,7 @@ const initial: State = {
     alertThresholdPct: 5,
     onboarded: false,
     countView: 'list',
+    leftHanded: false,
     denyBrands: [],
   },
   inventory: { have: {}, position: 0 },

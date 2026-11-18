@@ -174,6 +174,10 @@ const en = {
   was: 'was',
   whyCheaperShort: 'cheaper',
   cepStatus: { idle: '', looking: 'Looking up CEP…', found: '✓ Address found – add the number', notfound: 'CEP not found – type the address', offline: 'Couldn’t check the CEP (offline?) – type the address' },
+  handedness: 'Count buttons',
+  rightHand: 'Right hand',
+  leftHand: 'Left hand',
+  handednessHint: 'Which side the + and − buttons are on in the card view.',
   dow: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
 }
 
@@ -348,6 +352,10 @@ const pt: Strings = {
   was: 'era',
   whyCheaperShort: 'mais barato',
   cepStatus: { idle: '', looking: 'Buscando CEP…', found: '✓ Endereço encontrado – complete o número', notfound: 'CEP não encontrado – digite o endereço', offline: 'Não foi possível consultar o CEP (sem internet?) – digite o endereço' },
+  handedness: 'Botões de contagem',
+  rightHand: 'Mão direita',
+  leftHand: 'Mão esquerda',
+  handednessHint: 'Lado dos botões + e − na visualização em cartões.',
   dow: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
 }
 
@@ -520,6 +528,10 @@ const sv: Strings = {
   was: 'var',
   whyCheaperShort: 'billigare',
   cepStatus: { idle: '', looking: 'Söker CEP…', found: '✓ Adress hittad – lägg till husnumret', notfound: 'CEP hittades inte – skriv adressen', offline: 'Kunde inte söka CEP (offline?) – skriv adressen' },
+  handedness: 'Räkneknappar',
+  rightHand: 'Höger hand',
+  leftHand: 'Vänster hand',
+  handednessHint: 'Vilken sida + och − sitter på i kortvyn.',
   dow: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
 }
 

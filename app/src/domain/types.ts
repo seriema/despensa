@@ -68,6 +68,7 @@ export interface Settings {
   alertThresholdPct: number
   onboarded: boolean
   countView: 'list' | 'card'
+  leftHanded: boolean // count card: −/+ on the left instead of the right
   denyBrands: number[] // Krill marca_id never to buy, for any need
 }
 

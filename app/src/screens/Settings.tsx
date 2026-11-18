@@ -24,6 +24,15 @@ export function Settings() {
       </Card>
 
       <Card>
+        <h4>{t.handedness}</h4>
+        <div className="seg">
+          <button className={!s.settings.leftHanded ? 'on' : ''} onClick={() => d({ type: 'settings', patch: { leftHanded: false } })}>{t.rightHand}</button>
+          <button className={s.settings.leftHanded ? 'on' : ''} onClick={() => d({ type: 'settings', patch: { leftHanded: true } })}>{t.leftHand}</button>
+        </div>
+        <p className="small muted">{t.handednessHint}</p>
+      </Card>
+
+      <Card>
         <h4>{t.address}</h4>
       <AddressForm />
       </Card>

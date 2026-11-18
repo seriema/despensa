@@ -95,7 +95,7 @@ export function Inventory({ onDone }: { onDone: () => void }) {
       {/* Big photo for recognition; −/+ stacked on the right, under the thumb (feedback v0.6). */}
       <div className="count-card" key={current.id} {...swipe}>
         <div className="room-label">{t.rooms[room]} · {pos + 1}/{items.length}</div>
-        <div className="cc-main">
+        <div className={'cc-main' + (s.settings.leftHanded ? ' left' : '')}>
           <ProductImg image={imageOf(current)} dept={current.dept} size={240} />
           <Stepper vertical value={haveOf(s, current)} onChange={(v) => setHave(current.id, v)} />
         </div>
