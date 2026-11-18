@@ -254,3 +254,4 @@ main { padding-bottom: 70px; }
 .swap-pics .arrow { font-size: 16px; }
 .swap-text { margin: 0; font-size: 13px; }
 .swap-actions { grid-column: 1 / -1; margin-top: 6px; }
+.addr-row { display: grid; grid-template-columns: 100px 1fr; gap: 8px; }

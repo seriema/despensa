@@ -29,7 +29,7 @@ const initial: State = {
   items: seed.candidates,
   settings: {
     lang: 'en',
-    address: { street: '', district: '', city: '', cep: '' }, // entered in onboarding; stays on the device
+    address: { cep: '', street: '', number: '', complement: '', district: '', city: '' }, // entered in onboarding; stays on the device
     freeDeliveryThreshold: 600,
     alertThresholdPct: 5,
     onboarded: false,
@@ -87,7 +87,12 @@ function reducer(s: State, a: Action): State {
 function load(): State {
   try {
     const raw = localStorage.getItem(KEY)
-    if (raw) return { ...initial, ...JSON.parse(raw) }
+    if (raw) {
+      const saved = JSON.parse(raw)
+      // Merge new settings fields (e.g. address.number, v0.6) into data saved by older versions.
+      const settings = { ...initial.settings, ...saved.settings, address: { ...initial.settings.address, ...saved.settings?.address } }
+      return { ...initial, ...saved, settings }
+    }
   } catch {
     /* storage unavailable – start fresh */
   }

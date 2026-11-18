@@ -11,7 +11,7 @@ export function AddressForm() {
   const t = useT()
   const a = s.settings.address
   const [status, setStatus] = useState<'idle' | 'looking' | 'found' | 'notfound' | 'offline'>('idle')
-  const streetRef = useRef<HTMLInputElement>(null)
+  const numberRef = useRef<HTMLInputElement>(null)
   const set = (patch: Partial<typeof a>) => d({ type: 'settings', patch: { address: { ...a, ...patch } } })
 
   const onCep = async (raw: string) => {
@@ -22,10 +22,10 @@ export function AddressForm() {
     try {
       const r = await lookupCep(cep)
       if (!r) return setStatus('notfound')
-      d({ type: 'settings', patch: { address: { cep, street: r.street, district: r.district, city: `${r.city} – ${r.state}` } } })
+      d({ type: 'settings', patch: { address: { ...a, cep, street: r.street, district: r.district, city: `${r.city} – ${r.state}` } } })
       setStatus('found')
-      // Street usually comes without the number: put the cursor at the end so it can be typed.
-      setTimeout(() => { const el = streetRef.current; if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length) } }, 0)
+      // The lookup never knows the house number – go straight to that field.
+      setTimeout(() => numberRef.current?.focus(), 0)
     } catch {
       setStatus('offline')
     }
@@ -35,7 +35,11 @@ export function AddressForm() {
     <div className="address-form">
       <input className="input" inputMode="numeric" autoComplete="postal-code" maxLength={9} placeholder={t.addr.cep} value={a.cep} onChange={(e) => onCep(e.target.value)} />
       {status !== 'idle' && <p className={'small ' + (status === 'found' ? 'okc' : 'muted')}>{t.cepStatus[status]}</p>}
-      <input ref={streetRef} className="input" autoComplete="address-line1" placeholder={t.addr.street} value={a.street} onChange={(e) => set({ street: e.target.value })} />
+      <input className="input" autoComplete="address-line1" placeholder={t.addr.street} value={a.street} onChange={(e) => set({ street: e.target.value })} />
+      <div className="addr-row">
+        <input ref={numberRef} className="input" inputMode="numeric" placeholder={t.addr.number} value={a.number} onChange={(e) => set({ number: e.target.value })} />
+        <input className="input" autoComplete="address-line2" placeholder={t.addr.complement} value={a.complement} onChange={(e) => set({ complement: e.target.value })} />
+      </div>
       <input className="input" placeholder={t.addr.district} value={a.district} onChange={(e) => set({ district: e.target.value })} />
       <input className="input" autoComplete="address-level2" placeholder={t.addr.city} value={a.city} onChange={(e) => set({ city: e.target.value })} />
     </div>

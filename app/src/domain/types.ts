@@ -63,7 +63,7 @@ export interface BuyStats {
 
 export interface Settings {
   lang: Lang
-  address: { street: string; district: string; city: string; cep: string }
+  address: { cep: string; street: string; number: string; complement: string; district: string; city: string }
   freeDeliveryThreshold: number
   alertThresholdPct: number
   onboarded: boolean

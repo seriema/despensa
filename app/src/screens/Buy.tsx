@@ -98,7 +98,12 @@ export function Buy() {
             "Not this one" blocks that product for the need, so the next option is picked. */}
         {pending.length > 0 && (
           <Card>
-            <h4>{t.switchedProduct}</h4>
+            <div className="row">
+              <h4>{t.switchedProduct}</h4>
+              {pending.length > 1 && (
+                <button className="btn small ghost" onClick={() => setAccepted(new Set([...accepted, ...pending.map((x) => x.i.id)]))}>✓ {t.okAll}</button>
+              )}
+            </div>
             {pending.map((x) => (
               <div key={x.i.id} className="swap">
                 <div className="swap-pics">
@@ -136,7 +141,10 @@ export function Buy() {
             ))}
           </Card>
         )}
-        <button className="btn primary big full" onClick={() => setConfirm(true)}>{t.openCheckout}</button>
+        {/* Checkout waits until every swap is answered – otherwise a wrong product only shows up at the door. */}
+        <button className="btn primary big full" disabled={pending.length > 0} onClick={() => setConfirm(true)}>
+          {pending.length > 0 ? fmt(t.reviewSwapsFirst, { n: pending.length }) : t.openCheckout}
+        </button>
         <button className="link center" onClick={() => { setPhase('list'); setProgress(0) }}>‹ {t.back}</button>
         <p className="small muted center">{t.prototypeNote}</p>
         {confirm && (
