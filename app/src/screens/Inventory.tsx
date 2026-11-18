@@ -92,16 +92,19 @@ export function Inventory({ onDone }: { onDone: () => void }) {
     <div className="inventory card-mode">
       {header}
       <div className="progress"><div style={{ width: `${((pos + 1) / items.length) * 100}%` }} /></div>
+      {/* Big photo for recognition; −/+ stacked on the right, under the thumb (feedback v0.6). */}
       <div className="count-card" key={current.id} {...swipe}>
         <div className="room-label">{t.rooms[room]} · {pos + 1}/{items.length}</div>
-        <ProductImg image={imageOf(current)} dept={current.dept} size={120} />
+        <div className="cc-main">
+          <ProductImg image={imageOf(current)} dept={current.dept} size={240} />
+          <Stepper vertical value={haveOf(s, current)} onChange={(v) => setHave(current.id, v)} />
+        </div>
         <h2 className="item-name">{current.name}</h2>
         {ref && <div className="ref-name">{pack && <span className="pack">{pack}</span>} {ref.name}</div>}
         <div className="target-row">
           <span>{t.target}: <b>{current.target}</b></span>
           <span className={buy ? 'need' : 'ok'}>{buy ? `${t.buy}: ${buy}` : t.allGood}</span>
         </div>
-        <Stepper value={haveOf(s, current)} onChange={(v) => setHave(current.id, v)} />
       </div>
       <div className="walk-nav">
         <button className="btn ghost" disabled={pos === 0} onClick={() => go(pos - 1)}>‹ {t.back}</button>

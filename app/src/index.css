@@ -255,3 +255,14 @@ main { padding-bottom: 70px; }
 .swap-text { margin: 0; font-size: 13px; }
 .swap-actions { grid-column: 1 / -1; margin-top: 6px; }
 .addr-row { display: grid; grid-template-columns: 100px 1fr; gap: 8px; }
+
+/* ---- v0.6: count card with big photo + vertical stepper on the thumb side ---- */
+.cc-main { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 6px 0 4px; }
+.cc-main .pimg { flex: 1 1 auto; max-width: 210px; height: auto !important; aspect-ratio: 1; }
+.stepper.vertical { flex-direction: column; gap: 8px; }
+.stepper.vertical.big button { width: 76px; height: 76px; font-size: 36px; }
+.stepper.vertical.big .val { font-size: 44px; min-width: 0; line-height: 1; }
+.count-card .target-row { margin-bottom: 0; border-bottom: 0; }
+.cc-main .pimg { max-width: 240px; }
+.stepper.vertical.big button { width: 82px; height: 82px; font-size: 38px; }
+.stepper.vertical { gap: 12px; }

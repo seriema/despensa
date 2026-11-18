@@ -19,13 +19,18 @@ export function Modal({ children, onClose }: { children: ReactNode; onClose?: ()
   )
 }
 
-/** Big −/+ stepper used for counting. Large hit areas: used one-handed while looking in cupboards. */
-export function Stepper({ value, onChange, size = 'big' }: { value: number; onChange: (v: number) => void; size?: 'big' | 'mid' | 'small' }) {
+/**
+ * −/+ stepper. Large hit areas: used one-handed while looking in cupboards.
+ * `vertical` stacks + / value / − in a column (thumb side of the count card).
+ */
+export function Stepper({ value, onChange, size = 'big', vertical = false }: { value: number; onChange: (v: number) => void; size?: 'big' | 'mid' | 'small'; vertical?: boolean }) {
+  const minus = <button aria-label="minus" onClick={() => onChange(Math.max(0, value - 1))}>−</button>
+  const plus = <button aria-label="plus" onClick={() => onChange(value + 1)}>+</button>
   return (
-    <div className={'stepper ' + size}>
-      <button aria-label="minus" onClick={() => onChange(Math.max(0, value - 1))}>−</button>
+    <div className={'stepper ' + size + (vertical ? ' vertical' : '')}>
+      {vertical ? plus : minus}
       <span className="val">{value}</span>
-      <button aria-label="plus" onClick={() => onChange(value + 1)}>+</button>
+      {vertical ? minus : plus}
     </div>
   )
 }
