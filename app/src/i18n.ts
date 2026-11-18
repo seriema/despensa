@@ -178,6 +178,15 @@ const en = {
   rightHand: 'Right hand',
   leftHand: 'Left hand',
   handednessHint: 'Which side the + and − buttons are on in the card view.',
+  keepsFor: 'Keeps for',
+  weeksLabel: { 1: '1 week', 2: '2 weeks', 3: '3 weeks', 4: '1 month', 8: '2 months' },
+  monthlyOrder: 'Monthly order',
+  freshTopUp: 'Fresh top-up',
+  freshTopUpHint: 'Short-life items (produce, things that keep under 3 weeks) are bought in the store every week or two, not in the monthly order.',
+  countFresh: 'Count fresh items',
+  inStoreChecklist: 'In-store checklist',
+  atStore: 'at',
+  storeRecommendLater: 'Prices are Krill’s. If more stores are added, the app will suggest the cheaper store for today.',
   dow: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
 }
 
@@ -356,6 +365,15 @@ const pt: Strings = {
   rightHand: 'Mão direita',
   leftHand: 'Mão esquerda',
   handednessHint: 'Lado dos botões + e − na visualização em cartões.',
+  keepsFor: 'Dura',
+  weeksLabel: { 1: '1 semana', 2: '2 semanas', 3: '3 semanas', 4: '1 mês', 8: '2 meses' },
+  monthlyOrder: 'Pedido mensal',
+  freshTopUp: 'Reposição fresca',
+  freshTopUpHint: 'Itens que duram pouco (hortifruti, coisas que duram menos de 3 semanas) são comprados na loja a cada uma ou duas semanas, não no pedido mensal.',
+  countFresh: 'Contar itens frescos',
+  inStoreChecklist: 'Lista para a loja',
+  atStore: 'no',
+  storeRecommendLater: 'Preços do Krill. Se mais lojas forem adicionadas, o app vai sugerir a loja mais barata do dia.',
   dow: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
 }
 
@@ -532,6 +550,15 @@ const sv: Strings = {
   rightHand: 'Höger hand',
   leftHand: 'Vänster hand',
   handednessHint: 'Vilken sida + och − sitter på i kortvyn.',
+  keepsFor: 'Håller',
+  weeksLabel: { 1: '1 vecka', 2: '2 veckor', 3: '3 veckor', 4: '1 månad', 8: '2 månader' },
+  monthlyOrder: 'Månadsorder',
+  freshTopUp: 'Färskpåfyllning',
+  freshTopUpHint: 'Varor som inte håller länge (grönsaker, sådant som håller under 3 veckor) köps i butiken varje eller varannan vecka, inte i månadsordern.',
+  countFresh: 'Räkna färskvaror',
+  inStoreChecklist: 'Lista för butiken',
+  atStore: 'hos',
+  storeRecommendLater: 'Priserna är Krills. Om fler butiker läggs till föreslår appen dagens billigaste butik.',
   dow: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
 }
 

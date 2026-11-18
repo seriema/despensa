@@ -1,6 +1,6 @@
 /** App shell: onboarding gate + bottom tab bar. No router needed at this size. */
 import { useState } from 'react'
-import { StoreProvider, useStore, useT } from './state/store'
+import { StoreProvider, useStore, useT, useWalkItems } from './state/store'
 import { Onboarding } from './screens/Onboarding'
 import { Home } from './screens/Home'
 import { Inventory } from './screens/Inventory'
@@ -11,10 +11,17 @@ import { Settings } from './screens/Settings'
 type Tab = 'home' | 'count' | 'buy' | 'prices' | 'settings'
 
 function Shell() {
-  const { s } = useStore()
+  const { s, d } = useStore()
   const t = useT()
   const [tab, setTab] = useState<Tab>('home')
+  const walk = useWalkItems()
   if (!s.settings.onboarded) return <Onboarding />
+  /** Jump to the Count tab at the first fresh item (for the in-store top-up). */
+  const goCountFresh = () => {
+    const idx = walk.findIndex((i) => i.room === 'fresh')
+    if (idx >= 0) d({ type: 'position', value: idx })
+    setTab('count')
+  }
 
   const tabs: [Tab, string, string][] = [
     ['home', '🏠', t.tabHome],
@@ -32,7 +39,7 @@ function Shell() {
       <main>
         {tab === 'home' && <Home go={setTab} />}
         {tab === 'count' && <Inventory onDone={() => setTab('buy')} />}
-        {tab === 'buy' && <Buy />}
+        {tab === 'buy' && <Buy goCountFresh={goCountFresh} />}
         {tab === 'prices' && <Prices />}
         {tab === 'settings' && <Settings />}
       </main>

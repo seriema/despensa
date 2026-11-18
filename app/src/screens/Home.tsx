@@ -1,3 +1,4 @@
+import { isShortLife } from '../domain/suggest'
 import { useMemo } from 'react'
 import { DOM_BUCKETS, detectAlert, priceTiming } from '../domain/prices'
 import { PRICES, buyOf, choiceFor, lineOf, useStore, useT, useWalkItems } from '../state/store'
@@ -8,7 +9,7 @@ export function Home({ go }: { go: (tab: 'count' | 'buy' | 'prices') => void }) 
   const { s, d } = useStore()
   const t = useT()
   const walk = useWalkItems()
-  const toBuy = s.items.filter((i) => buyOf(s, i) > 0)
+  const toBuy = s.items.filter((i) => buyOf(s, i) > 0 && !isShortLife(i)) // monthly order only
   const total = toBuy.reduce((a, i) => a + lineOf(s, i).total, 0)
   const inProgress = s.inventory.startedAt && !s.inventory.finishedAt
   const alerts = useMemo(

@@ -48,6 +48,9 @@ monthly spending over time, and a "good day to buy" notification.
 | When to buy | Measured in money: paid price vs. the same product's usual price (±8-month median), weighted by value, by day-of-month range (1–5, 6–14, 15–24, 25–29, 30–31) and weekday. History is too thin to conclude; daily checks will. |
 | Name | **Despensa**. Store names (Krill) appear only where the store is meant: settings, data source, store connector code. |
 | Multiple stores (later) | Architecture keeps store-specific code behind a **store connector** interface (`app/src/stores/<store>/`): search, product details, section listing, cart, order history. Only Rede Krill now. A research pass compares Extra, Tenda Atacado Bertioga and Mercadão Atacadista Bertioga to see if multi-store is worth it (incl. transport). |
+| Shelf life | Each need has "keeps for" (default: produce 1 wk, fridge 3 wk, pantry/cleaning/frozen 8 wk; editable). Target = weekly use × keeps-for (max 8 wk). |
+| Two rhythms | **Monthly order** (filled in the store's cart) for items keeping ≥3 weeks; **fresh top-up** = in-store checklist every 1–2 weeks for short-life items (user goes to Krill or Extra). With multi-store later, the app recommends the cheaper store that day. |
+| Spending data gap | Krill order history = online orders only (≈R$455–580/month); in-store purchases (Krill, Extra, markets) are invisible, real spend ≈ R$1000+/month. Idea: Nota Fiscal Paulista (CPF na nota) receipts as a source. |
 | Hand-off | Plain readable TS, no obfuscation/minification in source; comments on *why*; this PLAN + docs kept current. Code in a git repo (GitHub, to be created). |
 
 ## 3. Architecture
@@ -130,6 +133,9 @@ Acém R$ 15.50 → 22.50. Raw extract: `data/staples.txt`.
   research sheet: Tenda delivered ≈ R$30/month cheaper for common items, pickup/split ≈ no saving.
   CEP lookup added (BrasilAPI v2 → ViaCEP fallback, CORS verified from the Pages origin; src/domain/cep.ts).
   Next: real Krill client in the Android (Capacitor) build, sync.
+
+- 2026-11-17 (night): left-handed setting; fresh top-up checklist + monthly order split by shelf life;
+  example basket sheet corrected to real monthly amounts (Krill-only data).
 
 ## 9. Open questions
 

@@ -7,7 +7,7 @@
  */
 import { useState } from 'react'
 import { ROOMS, type Item, type RoomId } from '../domain/types'
-import { reasonFor, suggestFromHistory, suggestedTarget, type Reason } from '../domain/suggest'
+import { keepsWeeksOf, reasonFor, suggestFromHistory, suggestedTarget, type Reason } from '../domain/suggest'
 import { BASIC_LIST } from '../data/groups'
 import { DATA_DATE } from '../data/seed'
 import { CANDIDATES, choiceFor, useStore, useT } from '../state/store'
@@ -53,6 +53,11 @@ export function ListEditor({ setup = false }: { setup?: boolean }) {
           <button className={i.match === 'cheapest' ? 'on' : ''} onClick={() => upd(i, { match: 'cheapest' })}>{t.anyBrand}</button>
           <button className={i.match === 'exact' ? 'on' : ''} onClick={() => upd(i, { match: 'exact' })}>{t.exactProduct}</button>
         </div>
+        <label className="small keeps">{t.keepsFor}{' '}
+          <select value={keepsWeeksOf(i)} onChange={(e) => upd(i, { keepsWeeks: +e.target.value })}>
+            {[1, 2, 3, 4, 8].map((w) => <option key={w} value={w}>{t.weeksLabel[w as 1 | 2 | 3 | 4 | 8]}</option>)}
+          </select>
+        </label>
         <select value={i.room} onChange={(e) => upd(i, { room: e.target.value as RoomId })}>
           {ROOMS.map((x) => <option key={x} value={x}>{t.rooms[x]}</option>)}
         </select>

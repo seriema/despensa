@@ -7,11 +7,12 @@
 import { useEffect, useMemo, useState } from 'react'
 import { ROOMS, type Item } from '../domain/types'
 import { detectAlert } from '../domain/prices'
+import { isShortLife } from '../domain/suggest'
 import { PRICES, PRODUCTS, buyOf, choiceFor, lastBoughtOf, lineOf, useStore, useT } from '../state/store'
 import { fmt } from '../i18n'
 import { Card, Modal, ProductImg, Stepper, brl, pct } from '../ui/common'
 
-export function Buy() {
+export function Buy({ goCountFresh }: { goCountFresh: () => void }) {
   const { s, d } = useStore()
   const t = useT()
   const [phase, setPhase] = useState<'list' | 'filling' | 'review'>('list')
@@ -19,9 +20,16 @@ export function Buy() {
   const [confirm, setConfirm] = useState(false)
   const [toast, setToast] = useState('')
   const [accepted, setAccepted] = useState<Set<string>>(new Set()) // swaps the user said OK to
+  // Two rhythms: the monthly store order, and an in-store checklist for short-life items between orders.
+  const [mode, setMode] = useState<'monthly' | 'fresh'>('monthly')
+  const [ticked, setTicked] = useState<Set<string>>(new Set()) // fresh checklist: already in the basket
 
   const lines = useMemo(
-    () => s.items.filter((i) => buyOf(s, i) > 0).sort((a, b) => ROOMS.indexOf(a.room) - ROOMS.indexOf(b.room)),
+    () => s.items.filter((i) => buyOf(s, i) > 0 && !isShortLife(i)).sort((a, b) => ROOMS.indexOf(a.room) - ROOMS.indexOf(b.room)),
+    [s],
+  )
+  const freshLines = useMemo(
+    () => s.items.filter((i) => i.active && isShortLife(i) && buyOf(s, i) > 0).sort((a, b) => a.name.localeCompare(b.name)),
     [s],
   )
   const choice = (i: Item) => choiceFor(s, i)
@@ -48,7 +56,44 @@ export function Buy() {
     return () => clearTimeout(h)
   }, [phase, progress, lines.length])
 
-  if (!lines.length) return <p className="pad muted">{t.nothingToBuy}</p>
+  const modeSwitch = (
+    <div className="seg mode-seg">
+      <button className={mode === 'monthly' ? 'on' : ''} onClick={() => setMode('monthly')}>🛒 {t.monthlyOrder}</button>
+      <button className={mode === 'fresh' ? 'on' : ''} onClick={() => setMode('fresh')}>🥬 {t.freshTopUp} {freshLines.length ? `(${freshLines.length})` : ''}</button>
+    </div>
+  )
+
+  if (mode === 'fresh' && phase === 'list') {
+    const est = freshLines.reduce((a, i) => a + lineOf(s, i).total, 0)
+    return (
+      <div className="pad">
+        {modeSwitch}
+        <p className="small muted">{t.freshTopUpHint}</p>
+        <button className="btn ghost full" onClick={goCountFresh}>📋 {t.countFresh}</button>
+        {freshLines.length === 0 ? <p className="muted">{t.nothingToBuy}</p> : (
+          <Card>
+            <div className="row"><h4>{t.inStoreChecklist}</h4><small className="muted">≈ {brl(est)} · {t.atStore} Krill</small></div>
+            {freshLines.map((i) => {
+              const done = ticked.has(i.id)
+              const l = lineOf(s, i)
+              return (
+                <label key={i.id} className={'line check' + (done ? ' done' : '')}>
+                  <input type="checkbox" checked={done} onChange={() => { const n = new Set(ticked); if (done) n.delete(i.id); else n.add(i.id); setTicked(n) }} />
+                  <span className="qty">{l.packages}×</span>
+                  <ProductImg image={i.image} dept={i.dept} size={34} />
+                  <span className="nm">{i.name}</span>
+                  <span className="pr muted">≈ {brl(l.total)}</span>
+                </label>
+              )
+            })}
+          </Card>
+        )}
+        <p className="small muted">{t.storeRecommendLater}</p>
+      </div>
+    )
+  }
+
+  if (!lines.length) return <div className="pad">{modeSwitch}<p className="muted">{t.nothingToBuy}</p></div>
 
   if (phase === 'filling') {
     return (
@@ -164,7 +209,7 @@ export function Buy() {
 
   return (
     <div className="pad">
-      <h2>{t.shoppingList}</h2>
+      {modeSwitch}
       {notCounted && <p className="banner warn">{t.notCountedYet}</p>}
       <Card className="delivery">
         <div className="row"><span>{t.estTotal}</span><b>{brl(total)}</b></div>

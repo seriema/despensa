@@ -49,6 +49,7 @@ export interface Item {
   sectionId?: number
   keywords?: string[] // narrow a broad Krill section (e.g. "com sal" within Manteiga)
   image?: string
+  keepsWeeks?: number // how long it keeps at home; undefined = default by department (see suggest.ts)
   stats?: BuyStats
 }
 

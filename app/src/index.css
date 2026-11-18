@@ -267,3 +267,11 @@ main { padding-bottom: 70px; }
 .stepper.vertical.big button { width: 82px; height: 82px; font-size: 38px; }
 .stepper.vertical { gap: 12px; }
 .cc-main.left { flex-direction: row-reverse; }
+
+/* ---- v0.7: monthly vs fresh top-up ---- */
+.mode-seg { margin-bottom: 10px; }
+.mode-seg button { font-size: 14px; padding: 9px 4px; }
+.line.check { cursor: pointer; }
+.line.check input { width: 20px; height: 20px; accent-color: var(--brand-2); }
+.line.check.done .nm, .line.check.done .qty { text-decoration: line-through; opacity: .5; }
+.keeps select { font-size: 12px; background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 3px; }

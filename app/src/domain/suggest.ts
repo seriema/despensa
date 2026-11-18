@@ -28,11 +28,26 @@ export function reasonFor(i: Item, today: string): Reason {
   return 'regular'
 }
 
+/**
+ * How long a need keeps at home, in weeks (user can override per item).
+ * Fresh produce ~1 week, fridge items ~3 weeks, pantry / cleaning / frozen meat 8 weeks (the 2-month buffer).
+ */
+export function keepsWeeksOf(i: Item): number {
+  if (i.keepsWeeks) return i.keepsWeeks
+  if (i.room === 'fresh' || /Hortifruti/.test(i.dept)) return 1
+  if (/Frios|Laticinios|Iogurtes|Padaria/.test(i.dept)) return 3
+  return 8
+}
+
+/** Short-life items are bought in the store between monthly orders (fresh top-up), not in the big order. */
+export const isShortLife = (i: Item) => keepsWeeksOf(i) < 3
+
+/** Target = weekly use × how long it keeps (max 8 weeks = the 2-month buffer), at least 1 pack. */
 export function suggestedTarget(i: Item): number {
   const s = i.stats
   if (!s) return 1
-  if (i.room === 'fresh') return Math.max(1, Math.round(s.totalQty / s.orders)) // typical amount per order
-  return Math.max(1, Math.ceil(s.perMonth * 2))
+  const perWeek = s.perMonth / 4.35
+  return Math.max(1, Math.ceil(perWeek * Math.min(8, keepsWeeksOf(i))))
 }
 
 export function suggestFromHistory(items: Item[], today: string): Item[] {
