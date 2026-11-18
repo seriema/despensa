@@ -1,5 +1,5 @@
 /** Small shared UI pieces and formatters. */
-import { useState, type ReactNode } from 'react'
+import { useRef, useState, type ReactNode } from 'react'
 import type { PricePoint } from '../domain/types'
 
 export const brl = (n: number) => 'R$ ' + n.toFixed(2).replace('.', ',')
@@ -124,4 +124,23 @@ export function BarChart({ data, height = 160, fmtV, refLine }: {
       )}
     </div>
   )
+}
+
+/**
+ * Horizontal swipe on touch screens (and mouse drag on desktop). Returns props to spread on a container.
+ * Only clearly horizontal gestures count, so vertical scrolling still works.
+ */
+export function useSwipe(onLeft: () => void, onRight: () => void) {
+  const start = useRef<{ x: number; y: number } | null>(null)
+  return {
+    onPointerDown: (e: React.PointerEvent) => { start.current = { x: e.clientX, y: e.clientY } },
+    onPointerUp: (e: React.PointerEvent) => {
+      const s0 = start.current
+      start.current = null
+      if (!s0) return
+      const dx = e.clientX - s0.x, dy = e.clientY - s0.y
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) (dx < 0 ? onLeft : onRight)()
+    },
+    style: { touchAction: 'pan-y' as const },
+  }
 }

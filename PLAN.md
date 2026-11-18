@@ -123,6 +123,13 @@ Acém R$ 15.50 → 22.50. Raw extract: `data/staples.txt`.
   Brand stickiness: keep last-bought unless another is ≥2 % cheaper. Pack-size conversion (4-pack vs single,
   20 vs 30 eggs) so the same amount is bought. Multi-store research running (Extra, Tenda, Mercadão).
 
+- 2026-11-17 (late): v0.5 on GitHub Pages (seriema.github.io/despensa). Compact layout for Galaxy S24 (384×~740),
+  swipe in onboarding and card view, pack size shown while counting (from the product bought last time),
+  never swap to a pack >2× or <½ the usual size, swap review = photos + "OK / Not this one", clearer price-change rows,
+  login + history import are visibly simulated (demo) with a progress screen. Example basket tab added to the
+  research sheet: Tenda delivered ≈ R$30/month cheaper for common items, pickup/split ≈ no saving.
+  Next: CEP lookup (research running), real Krill client in the Android (Capacitor) build, sync.
+
 ## 9. Open questions
 
 - Supabase vs Firebase (default: Supabase).

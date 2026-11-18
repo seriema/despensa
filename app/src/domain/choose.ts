@@ -22,6 +22,16 @@ export function parseSize(name: string): Size | undefined {
   if (/\bun\.?$/.test(n.trim())) return { amount: 1, base: 'un' } // "Esponja Multiuso Brilhus Un"
 }
 
+/** Human label for a pack size: "500 g", "1 kg", "900 ml", "12 un". */
+export function sizeLabel(name: string): string | undefined {
+  const z = parseSize(name)
+  if (!z) return
+  const n = (x: number) => String(+x.toFixed(2)).replace('.', ',')
+  if (z.base === 'kg') return z.amount < 1 ? `${n(z.amount * 1000)} g` : `${n(z.amount)} kg`
+  if (z.base === 'L') return z.amount < 1 ? `${n(z.amount * 1000)} ml` : `${n(z.amount)} L`
+  return `${z.amount} un`
+}
+
 export interface Option {
   product: Product
   price: number // what you'd pay per package today (offer price if on offer)
@@ -29,6 +39,8 @@ export interface Option {
   perBase?: { value: number; base: Size['base'] }
   blocked?: 'product' | 'brand'
   unavailable?: boolean
+  /** Pack is more than 2× or less than ½ the size the household is used to (never swap a 500 g for a 10 kg). */
+  wrongSize?: boolean
 }
 
 export interface Choice {
@@ -52,6 +64,8 @@ export function chooseProduct(
   preferId?: number,
 ): Choice {
   const ids = item.match === 'exact' ? item.productIds.slice(0, 1) : item.productIds
+  const refId = preferId ?? item.productIds[0]
+  const refSize = products[refId] && parseSize(products[refId].name)
   const opts: Option[] = []
   for (const id of ids) {
     const product = products[id]
@@ -65,9 +79,10 @@ export function chooseProduct(
       perBase: size ? { value: tp.price / size.amount, base: size.base } : undefined,
       blocked: item.deny.includes(id) ? 'product' : product.brandId && denyBrands.includes(product.brandId) ? 'brand' : undefined,
       unavailable: !product.available || product.discontinued,
+      wrongSize: !!(refSize && size && size.base === refSize.base && (size.amount > refSize.amount * 2 || size.amount < refSize.amount / 2)),
     })
   }
-  const usable = opts.filter((o) => !o.blocked && !o.unavailable)
+  const usable = opts.filter((o) => !o.blocked && !o.unavailable && !o.wrongSize)
   // Compare per kg/L/unit only when every usable option has a size in the same dimension.
   const byUnit = usable.length > 1 && usable.every((o) => o.perBase && o.perBase.base === usable[0].perBase!.base)
   const key = (o: Option) => (byUnit ? o.perBase!.value : o.price)

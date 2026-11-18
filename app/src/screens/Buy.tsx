@@ -18,6 +18,7 @@ export function Buy() {
   const [progress, setProgress] = useState(0)
   const [confirm, setConfirm] = useState(false)
   const [toast, setToast] = useState('')
+  const [accepted, setAccepted] = useState<Set<string>>(new Set()) // swaps the user said OK to
 
   const lines = useMemo(
     () => s.items.filter((i) => buyOf(s, i) > 0).sort((a, b) => ROOMS.indexOf(a.room) - ROOMS.indexOf(b.room)),
@@ -69,13 +70,11 @@ export function Buy() {
       const prevId = lastBoughtOf(i)
       if (!c.chosen || !prevId || prevId === c.chosen.product.id) return []
       const prev = c.options.find((o) => o.product.id === prevId)
-      // Saving per package of the product bought last time (per kg/L/unit when pack sizes differ).
-      const saving = prev && (c.comparedBy === 'unit' && prev.perBase && c.chosen.perBase
-        ? (prev.perBase.value - c.chosen.perBase.value) * (prev.price / prev.perBase.value)
-        : prev.price - c.chosen.price)
-      const why = !prev || prev.unavailable ? t.whyUnavailable : prev.blocked ? t.whyBlocked : fmt(t.whyCheaper, { x: brl(Math.max(0, saving ?? 0)) })
-      return [{ i, from: PRODUCTS[prevId]?.name ?? String(prevId), to: c.chosen.product.name, why }]
+      const line = lineOf(s, i)
+      const why = !prev || prev.unavailable ? t.whyUnavailable : prev.blocked ? t.whyBlocked : t.whyCheaperShort
+      return [{ i, prev: PRODUCTS[prevId], next: c.chosen.product, qty: line.qty, packages: line.packages, why }]
     })
+    const pending = switched.filter((x) => !accepted.has(x.i.id))
     const changed = lines
       .map((i) => ({ i, c: choice(i).chosen }))
       .map(({ i, c }) => ({ i, c, a: c && detectAlert(c.product.id, PRICES[c.product.id] ?? [], s.settings.alertThresholdPct) }))
@@ -95,23 +94,45 @@ export function Buy() {
             {missingNeeds.map((i) => <div key={i.id} className="row"><span>{i.name}</span><span>{buyOf(s, i)}×</span></div>)}
           </Card>
         )}
-        {switched.length > 0 && (
+        {/* One question per swap: "this is what you're getting – OK?" (feedback v0.4).
+            "Not this one" blocks that product for the need, so the next option is picked. */}
+        {pending.length > 0 && (
           <Card>
-            <h4>⇄ {t.switchedProduct}</h4>
-            {switched.map((x) => (
-              <div key={x.i.id} className="switch-row small">
-                <b>{x.i.name}</b>
-                <span className="muted">{x.from}</span>
-                <span>→ {x.to} <em className="okc">· {x.why}</em></span>
+            <h4>{t.switchedProduct}</h4>
+            {pending.map((x) => (
+              <div key={x.i.id} className="swap">
+                <div className="swap-pics">
+                  <figure>
+                    <ProductImg image={x.prev?.image} dept={x.i.dept} size={40} />
+                    <figcaption>{t.lastTime}</figcaption>
+                  </figure>
+                  <span className="arrow">→</span>
+                  <figure>
+                    <ProductImg image={x.next.image} dept={x.i.dept} size={56} />
+                    <figcaption>{t.thisTime}</figcaption>
+                  </figure>
+                </div>
+                <div className="swap-text">
+                  <b>{x.qty}× {x.next.name}</b>
+                  <small className="muted">{t.was}: {x.packages}× {x.prev?.name} · {x.why}</small>
+                </div>
+                <div className="swap-actions">
+                  <button className="btn small ghost" onClick={() => d({ type: 'toggleDenyProduct', itemId: x.i.id, productId: x.next.id })}>{t.notThis}</button>
+                  <button className="btn small primary" onClick={() => setAccepted(new Set(accepted).add(x.i.id))}>✓ {t.okSwap}</button>
+                </div>
               </div>
             ))}
           </Card>
         )}
         {changed.length > 0 && (
           <Card>
-            <h4>↑ {t.priceChanged}</h4>
+            <h4>{t.priceChanged}</h4>
             {changed.map(({ i, a }) => (
-              <div key={i.id} className="row"><span>{i.name}</span><span className="up">{brl(a!.from)} → {brl(a!.to)} ({pct(a!.pct)})</span></div>
+              <div key={i.id} className="pc-row">
+                <span className="nm">{i.name}</span>
+                <span className="pc-now">{brl(a!.to)}</span>
+                <span className="pc-was">{t.was} {brl(a!.from)} · <b className="up">{pct(a!.pct)}</b></span>
+              </div>
             ))}
           </Card>
         )}

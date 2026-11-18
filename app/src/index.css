@@ -207,3 +207,50 @@ main { flex: 1; padding-bottom: 84px; }
 .switch-row { display: flex; flex-direction: column; padding: 7px 0; border-top: 1px solid var(--line); }
 .switch-row:first-of-type { border-top: 0; }
 .switch-row em { font-style: normal; }
+
+/* ---- v0.5: compact phone layout, pack labels, swap review ---- */
+.top { padding: calc(8px + env(safe-area-inset-top)) 14px 8px; }
+.tabs button { padding: 6px 0 8px; }
+.tabs button span { font-size: 18px; }
+main { padding-bottom: 70px; }
+.inventory { padding: 8px 12px; }
+.count-head { display: flex; gap: 8px; align-items: flex-start; }
+.count-head .room-chips { flex: 1; min-width: 0; }
+.seg.tiny button { padding: 5px 9px; }
+.hint { margin: 2px 0 6px; }
+.pack { display: inline-block; font-size: 11px; font-weight: 600; color: var(--brand-2); background: rgba(26,94,168,.1); border-radius: 6px; padding: 0 5px; margin-right: 2px; }
+.count-row { padding: 7px 0; }
+.walk-nav { margin-top: 10px; }
+.walk-nav .btn.big { padding: 13px 18px; font-size: 16px; }
+.card-mode .progress { margin: 4px 0 8px; }
+.count-card { padding: 12px 14px 16px; border-radius: 16px; touch-action: pan-y; user-select: none; }
+.count-card .item-name { font-size: 18px; margin: 6px 0 2px; min-height: 0; }
+.ref-name { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.count-card .target-row { padding: 6px 4px; margin-bottom: 12px; font-size: 15px; }
+.stepper.big button { width: 68px; height: 68px; font-size: 34px; }
+.stepper.big .val { font-size: 48px; min-width: 70px; }
+.import-progress { text-align: center; padding-top: 20px; }
+.import-progress .spinner { margin: 0 auto 12px; }
+.swap { padding: 10px 0; border-top: 1px solid var(--line); }
+.swap:first-of-type { border-top: 0; }
+.swap-pics { display: flex; align-items: center; gap: 10px; }
+.swap-pics figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.swap-pics figcaption { font-size: 11px; color: var(--muted); }
+.swap-pics .arrow { font-size: 20px; color: var(--muted); }
+.swap-text { display: flex; flex-direction: column; margin: 6px 0; font-size: 14px; }
+.swap-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.pc-row { display: grid; grid-template-columns: 1fr auto; column-gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.pc-row:first-of-type { border-top: 0; }
+.pc-row .nm { grid-row: span 2; }
+.pc-now { font-weight: 700; text-align: right; white-space: nowrap; }
+.pc-was { font-size: 12px; color: var(--muted); text-align: right; white-space: nowrap; }
+.onboarding { padding: 16px 18px; min-height: 100dvh; }
+.ob-body { padding-top: 12px; }
+.ob-body h1 { font-size: 24px; }
+.app { min-height: 100dvh; }
+
+.swap { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: center; }
+.swap-pics { gap: 4px; }
+.swap-pics .arrow { font-size: 16px; }
+.swap-text { margin: 0; font-size: 13px; }
+.swap-actions { grid-column: 1 / -1; margin-top: 6px; }

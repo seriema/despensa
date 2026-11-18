@@ -7,7 +7,7 @@ import { createContext, useContext, useEffect, useMemo, useReducer, type ReactNo
 import type { InventoryState, Item, Settings } from '../domain/types'
 import { ROOMS } from '../domain/types'
 import { buildSeed } from '../data/seed'
-import { chooseProduct, parseSize } from '../domain/choose'
+import { chooseProduct, parseSize, sizeLabel } from '../domain/choose'
 import { STRINGS } from '../i18n'
 
 const KEY = 'despensa:v3' // bump when the stored shape changes
@@ -160,4 +160,12 @@ export function lastBoughtOf(i: Item): number | undefined {
     if (last && (!best || last.date > best.date)) best = { id, date: last.date }
   }
   return best?.id
+}
+
+/** The product the household's counts refer to: the one bought last time (or the first known). */
+export const refProductOf = (i: Item) => PRODUCTS[lastBoughtOf(i) ?? i.productIds[0]]
+/** Pack size the user is counting in, e.g. "500 g" – shown while counting so "1" is unambiguous. */
+export const packLabelOf = (i: Item) => {
+  const p = refProductOf(i)
+  return p ? sizeLabel(p.name) : undefined
 }
