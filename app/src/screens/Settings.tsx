@@ -4,13 +4,13 @@ import { LANG_NAMES } from '../i18n'
 import { PRODUCTS, useStore, useT } from '../state/store'
 import { Card } from '../ui/common'
 import { ListEditor } from './ListEditor'
+import { AddressForm } from './AddressForm'
 
 export function Settings() {
   const { s, d } = useStore()
   const t = useT()
   const [editing, setEditing] = useState(false)
   const set = (patch: Partial<typeof s.settings>) => d({ type: 'settings', patch })
-  const a = s.settings.address
 
   return (
     <div className="pad">
@@ -25,9 +25,7 @@ export function Settings() {
 
       <Card>
         <h4>{t.address}</h4>
-        {(['street', 'district', 'city', 'cep'] as const).map((k) => (
-          <input key={k} className="input" placeholder={t.addr[k]} value={a[k]} onChange={(e) => set({ address: { ...a, [k]: e.target.value } })} />
-        ))}
+      <AddressForm />
       </Card>
 
       <Card>

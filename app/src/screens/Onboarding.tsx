@@ -5,6 +5,7 @@ import type { Lang } from '../domain/types'
 import { LANG_NAMES, fmt } from '../i18n'
 import { useStore, useT } from '../state/store'
 import { ListEditor } from './ListEditor'
+import { AddressForm } from './AddressForm'
 import { useSwipe } from '../ui/common'
 
 export function Onboarding() {
@@ -14,7 +15,6 @@ export function Onboarding() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [connecting, setConnecting] = useState(false)
   const [imported, setImported] = useState(0) // simulated history import progress (orders read)
-  const a = s.settings.address
   const next = () => setStep(step + 1)
 
   const steps = [
@@ -42,9 +42,7 @@ export function Onboarding() {
     <>
       <h1>{t.obAddressTitle}</h1>
       <p>{t.obAddressText}</p>
-      {(['street', 'district', 'city', 'cep'] as const).map((k) => (
-        <input key={k} className="input" placeholder={t.addr[k]} value={a[k]} onChange={(e) => d({ type: 'settings', patch: { address: { ...a, [k]: e.target.value } } })} />
-      ))}
+      <AddressForm />
     </>,
     <>
       <h1>{t.obKrillTitle}</h1>

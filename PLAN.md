@@ -128,7 +128,8 @@ Acém R$ 15.50 → 22.50. Raw extract: `data/staples.txt`.
   never swap to a pack >2× or <½ the usual size, swap review = photos + "OK / Not this one", clearer price-change rows,
   login + history import are visibly simulated (demo) with a progress screen. Example basket tab added to the
   research sheet: Tenda delivered ≈ R$30/month cheaper for common items, pickup/split ≈ no saving.
-  Next: CEP lookup (research running), real Krill client in the Android (Capacitor) build, sync.
+  CEP lookup added (BrasilAPI v2 → ViaCEP fallback, CORS verified from the Pages origin; src/domain/cep.ts).
+  Next: real Krill client in the Android (Capacitor) build, sync.
 
 ## 9. Open questions
 

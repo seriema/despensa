@@ -171,6 +171,7 @@ const en = {
   sameAmount: 'same amount as last time',
   was: 'was',
   whyCheaperShort: 'cheaper',
+  cepStatus: { idle: '', looking: 'Looking up CEP…', found: '✓ Address found – add the house number', notfound: 'CEP not found – type the address', offline: 'Couldn’t check the CEP (offline?) – type the address' },
   dow: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
 }
 
@@ -342,6 +343,7 @@ const pt: Strings = {
   sameAmount: 'mesma quantidade da última vez',
   was: 'era',
   whyCheaperShort: 'mais barato',
+  cepStatus: { idle: '', looking: 'Buscando CEP…', found: '✓ Endereço encontrado – complete o número', notfound: 'CEP não encontrado – digite o endereço', offline: 'Não foi possível consultar o CEP (sem internet?) – digite o endereço' },
   dow: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
 }
 
@@ -511,6 +513,7 @@ const sv: Strings = {
   sameAmount: 'samma mängd som förra gången',
   was: 'var',
   whyCheaperShort: 'billigare',
+  cepStatus: { idle: '', looking: 'Söker CEP…', found: '✓ Adress hittad – lägg till husnumret', notfound: 'CEP hittades inte – skriv adressen', offline: 'Kunde inte söka CEP (offline?) – skriv adressen' },
   dow: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
 }
 
